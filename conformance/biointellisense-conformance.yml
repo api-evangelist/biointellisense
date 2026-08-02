@@ -1,0 +1,84 @@
+generated: '2026-08-02'
+method: searched
+source: 'https://www.biointellisense.com/privacy-policy/, https://www.biointellisense.com/service-level-agreement/,
+  FDA clearance announcement; plus live probes of the BioCloud API host'
+summary:
+  regulatory_posture: 'Strong and publicly stated — FDA 510(k) clearance for the device
+    + system, HIPAA/HITECH PHI handling and CCPA/CPRA rights documented in the privacy
+    policy, encryption at rest and in transit stated.'
+  api_standards_posture: 'Absent — no OpenAPI, no OAuth/OIDC metadata, no RFC 9457
+    errors, no published REST conventions. Machine-readable conformance cannot be asserted
+    for a fully gated, undocumented API.'
+standards:
+- id: hipaa
+  conforms: true
+  evidence: 'Privacy policy states data collected constitutes "protected health information
+    (PHI) under the U.S. Health Insurance Portability and Accountability Act (HIPAA)"
+    and is handled under "HIPAA/HITECH laws and regulations"; PHI is not used for marketing
+    without consent.'
+  source: https://www.biointellisense.com/privacy-policy/
+- id: hitech
+  conforms: true
+  evidence: Named alongside HIPAA in the privacy policy as governing law for PHI handling.
+  source: https://www.biointellisense.com/privacy-policy/
+- id: ccpa-cpra
+  conforms: true
+  evidence: Privacy policy documents California Consumer Privacy Act rights as amended by the California Privacy Rights Act.
+  source: https://www.biointellisense.com/privacy-policy/
+- id: fda-510k
+  conforms: true
+  evidence: 'FDA clearance announced 2024-10-02 for the BioButton multi-patient wearable
+    and the BioDashboard system for continuous patient monitoring.'
+  source: https://www.businesswire.com/news/home/20241002371306/en/BioIntelliSense-Announces-FDA-Clearance-of-the-BioButton-Multi-Patient-Wearable-and-BioDashboard-System-for-Continuous-Patient-Monitoring
+- id: encryption-at-rest-and-in-transit
+  conforms: true
+  evidence: 'Privacy policy: "encrypting the data at rest on the Product and within
+    BioCloud as well as encrypting during transmission"; "encryption, access controls
+    and other administrative, technical and physical security safeguards".'
+  source: https://www.biointellisense.com/privacy-policy/
+- id: hl7-v2
+  conforms: true
+  evidence: 'Published Rhapsody case study documents BioIntelliSense transforming JSON
+    device data into HL7 for ingestion into Epic at a Colorado health system, via the
+    Rhapsody Envoy iPaaS. HL7 v2 is used at the EMR integration boundary.'
+  source: https://rhapsody.health/resources/biointellisense/
+  confidence: medium
+- id: soc2
+  conforms: false
+  evidence: No SOC 2 report or Type II attestation is named anywhere on biointellisense.com; no trust center exists (trust./security. subdomains NXDOMAIN, /trust /security /compliance all 404).
+- id: iso27001
+  conforms: false
+  evidence: Not named in any public BioIntelliSense document.
+- id: hitrust
+  conforms: false
+  evidence: Not named in any public BioIntelliSense document.
+- id: gdpr
+  conforms: false
+  evidence: Not mentioned in the privacy policy; the policy addresses US federal (HIPAA/HITECH) and California (CCPA/CPRA) regimes only.
+- id: fhir-r4
+  conforms: false
+  evidence: No FHIR resource surface, no FHIR CapabilityStatement, no mention of FHIR in provider documentation.
+- id: oauth2
+  conforms: false
+  evidence: '/.well-known/oauth-authorization-server returns 401 (gate fires before the document); no OAuth documentation published.'
+- id: oidc
+  conforms: false
+  evidence: '/.well-known/openid-configuration returns 401 on the API host and 404 on the website host.'
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 'Observed error body is a bespoke {"code","description"} JSON envelope with content-type application/json, not application/problem+json.'
+  source: errors/biointellisense-problem-types.yml
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on www.biointellisense.com and 401 on the API host.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No deprecation or sunset policy published.
+- id: openapi
+  conforms: false
+  evidence: 'No OpenAPI or Swagger document is served anonymously from any BioIntelliSense
+    host after probing /openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json,
+    /api-docs, /docs and /redoc on the website, API and status hosts.'
+x-evidence:
+  fetched: '2026-08-02'
+  hosts_probed: [www.biointellisense.com, api.biointellisense.com, biocloud.biointellisense.com, data.biointellisense.com, status.biointellisense.com]

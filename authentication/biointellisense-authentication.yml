@@ -1,0 +1,49 @@
+generated: '2026-08-02'
+method: probed
+source: live probe of https://biocloud.biointellisense.com (no OpenAPI available to derive from)
+summary:
+  types: [unknown-bearer]
+  api_key_in: []
+  oauth2_flows: []
+  public_docs: false
+  self_service_signup: false
+schemes:
+- name: authorization-header
+  type: http
+  scheme: unknown
+  in: header
+  parameter: Authorization
+  description: 'Every path on the BioCloud API host rejects anonymous requests with
+    HTTP 401 and the JSON body {"code":"authentication_header_missing","description":"Authentication
+    header is expected"}. The gate therefore requires an Authorization request header,
+    but the credential type (bearer JWT, opaque token, API key) is not disclosed anonymously
+    and BioIntelliSense publishes no developer authentication documentation.'
+  sources: [probe://biocloud.biointellisense.com]
+  confidence: medium
+observations:
+- host: biocloud.biointellisense.com
+  http_status: 401
+  content_type: application/json
+  body: '{"code":"authentication_header_missing","description":"Authentication header
+    is expected"}'
+  server: gunicorn
+  fronted_by: biocloud-internal-api-alb (AWS ELB, us-east-2)
+- host: data.biointellisense.com
+  note: 'TLS terminates (Google Cloud LB, 34.96.68.71, cert verifies) but the host
+    returns no HTTP response to an anonymous HTTP/1.1 or HTTP/2 request and rejects
+    standard TLS clients — consistent with a mutual-TLS or client-certificate-gated
+    device-ingest endpoint. Not confirmed.'
+- host: api.biointellisense.com
+  note: 'DANGLING CNAME. api.biointellisense.com -> demo19-prod.apigee.net, which has
+    no A record on Google (8.8.8.8) or Cloudflare (1.1.1.1) resolvers as of 2026-08-02.
+    The Apigee organization it pointed at appears decommissioned; the DNS record was
+    not withdrawn. This is a stale record, not a live API host, and is a subdomain-takeover
+    exposure worth flagging to the provider.'
+discovery:
+  oauth_metadata: none (401 on /.well-known/oauth-authorization-server)
+  openid_configuration: none (401 on /.well-known/openid-configuration)
+  docs: null
+x-evidence:
+  fetched: '2026-08-02'
+  paths_probed: 19
+  anonymous_200s: 0

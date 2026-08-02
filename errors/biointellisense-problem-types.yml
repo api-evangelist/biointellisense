@@ -1,0 +1,33 @@
+generated: '2026-08-02'
+method: probed
+source: live probe of https://biocloud.biointellisense.com (no OpenAPI available to derive from)
+format: custom
+envelope:
+  media_type: application/json
+  rfc9457: false
+  fields:
+  - {name: code, type: string, description: machine-readable error slug (snake_case)}
+  - {name: description, type: string, description: human-readable explanation}
+  note: 'The BioCloud API returns a bespoke two-field JSON error envelope, not RFC 9457
+    application/problem+json. No `type` URI, no `title`, no `status` member, no `instance`.'
+problems:
+- status: 401
+  code: authentication_header_missing
+  title: Authentication header is expected
+  description: 'Returned for every anonymous request to any path on the BioCloud API
+    host, including /, /openapi.json, /docs, /graphql, /mcp and /.well-known/*. The
+    gate fires before routing, so a 404 for an unknown path is never observable anonymously.'
+  observed_body: '{"code":"authentication_header_missing","description":"Authentication
+    header is expected"}'
+  source_operation: probe://biocloud.biointellisense.com/
+coverage:
+  problems_documented_by_provider: 0
+  problems_observed: 1
+  note: 'BioIntelliSense publishes no public error reference. This catalog records only
+    what was directly observed on an anonymous probe; the authenticated error surface
+    is not enumerable without credentials.'
+x-evidence:
+  fetched: '2026-08-02'
+  url: https://biocloud.biointellisense.com/
+  http_status: 401
+  content_type: application/json

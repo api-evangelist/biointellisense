@@ -1,23 +1,117 @@
 aid: biointellisense
-name: BioIntellisense
-description: 'BioIntellisense is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+name: BioIntelliSense
+description: 'BioIntelliSense is a Golden, Colorado continuous health monitoring company
+  whose FDA-cleared BioButton multi-patient wearable, BioSticker, BioHub cellular/Wi-Fi
+  gateways, BioMobile smartphone app and BioDashboard exception-management software
+  stream medical-grade vital signs — heart rate, respiratory rate, skin temperature,
+  body position, activity and sleep — from in-facility acute care through post-acute
+  and at-home remote patient monitoring. Device telemetry flows over Bluetooth to a
+  gateway and into the BioCloud data-as-a-service platform, where analytics and clinician
+  alerting run and where third-party and EMR/EHR integrations (HL7 into Epic and peers)
+  consume the data. The BioCloud API host is live but entirely authentication-gated,
+  with no publicly published developer portal, OpenAPI definition, SDKs or self-service
+  onboarding — integration is arranged commercially under a Master Services Agreement.'
 url: https://raw.githubusercontent.com/api-evangelist/biointellisense/refs/heads/main/apis.yml
+image: https://www.biointellisense.com/wp-content/uploads/2025/10/512x512-300x300.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-02'
 modified: '2026-08-02'
 tags:
 - Company
-apis: []
+- Health
+- Healthcare
+- Remote Patient Monitoring
+- Wearables
+- Medical Devices
+- Vital Signs
+- Continuous Monitoring
+- Digital Health
+- Data as a Service
+apis:
+- aid: biointellisense:biocloud
+  name: BioIntelliSense BioCloud API
+  description: 'The BioCloud data-as-a-service platform API that ingests continuous
+    vital-signs telemetry from BioButton / BioSticker wearables via BioHub gateways
+    and the BioMobile app, and serves it to BioDashboard and to customer EMR/EHR and
+    third-party integrations. The host is live and answers on every probed path with
+    the same JSON 401 envelope, so the surface is confirmed to exist but is entirely
+    auth-gated: no anonymous OpenAPI, no public developer portal, no self-service sign-up.
+    Access is arranged commercially under a Master Services Agreement.'
+  humanURL: https://www.biointellisense.com/biodashboard/
+  baseURL: https://biocloud.biointellisense.com
+  tags:
+  - Remote Patient Monitoring
+  - Vital Signs
+  - Wearables
+  - Health Data
+  x-access: gated
+  x-evidence:
+    probed: '2026-08-02'
+    url: https://biocloud.biointellisense.com/
+    http_status: 401
+    content_type: application/json
+    note: 'every probed path (/, /openapi.json, /swagger.json, /docs, /api-docs, /graphql,
+      /mcp, /.well-known/*) returns the same 401 JSON envelope; server header gunicorn,
+      fronted by biocloud-internal-api-alb (AWS ELB, us-east-2)'
+  properties:
+  - type: Authentication
+    url: authentication/biointellisense-authentication.yml
+  - type: ErrorCatalog
+    url: errors/biointellisense-problem-types.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/biointellisense-domain-security.yml
 - type: Website
+  url: https://www.biointellisense.com/
+- type: Documentation
+  url: https://www.biointellisense.com/resources/
+- type: Support
+  url: https://www.biointellisense.com/support
+- type: Blog
+  url: https://www.biointellisense.com/category/news/
+- type: TermsOfService
+  url: https://www.biointellisense.com/platform-and-product-user-terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.biointellisense.com/privacy-policy/
+- type: Compliance
+  url: https://www.biointellisense.com/privacy-policy/
+- type: Legal
+  url: https://www.biointellisense.com/legal
+- type: SLA
+  url: https://www.biointellisense.com/service-level-agreement/
+- type: StatusPage
+  url: https://status.biointellisense.com/
+- type: Contact
+  url: https://www.biointellisense.com/contact/
+- type: Careers
+  url: https://jobs.lever.co/biointellisense
+- type: SecondaryMarket
   url: https://forgeglobal.com/biointellisense_stock/
+- type: Lifecycle
+  url: lifecycle/biointellisense-lifecycle.yml
+- type: Packages
+  url: packages/biointellisense-packages.yml
+- type: WellKnown
+  url: well-known/biointellisense-well-known.yml
+- type: Conformance
+  url: conformance/biointellisense-conformance.yml
+- type: Conventions
+  url: conventions/biointellisense-conventions.yml
+- type: Authentication
+  url: authentication/biointellisense-authentication.yml
+- type: ErrorCatalog
+  url: errors/biointellisense-problem-types.yml
+- type: LLMsTxt
+  url: llms/biointellisense-llms.txt
+x-enrichment:
+  date: '2026-08-02'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v1

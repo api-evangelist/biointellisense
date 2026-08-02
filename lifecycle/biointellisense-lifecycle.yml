@@ -1,0 +1,48 @@
+generated: '2026-08-02'
+method: searched
+source: https://www.biointellisense.com/service-level-agreement/
+versioning:
+  scheme: undocumented
+  current: null
+  docs: null
+  note: 'BioIntelliSense publishes no API versioning policy. The BioCloud API is auth-gated
+    and there is no developer portal, so no version scheme (URI path, header, date)
+    is observable.'
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: No public deprecation policy and no RFC 8594 Sunset/Deprecation header contract published.
+sla:
+  url: https://www.biointellisense.com/service-level-agreement/
+  uptime_target: 99.9%
+  scope: 'Monthly availability of cloud-based Subscription Services (BioCloud and AlertWatch/BioDashboard).'
+  service_credits: '3%-10% of monthly fees, tiered by severity of the availability miss'
+  incorporated_into: Master Services Agreement between Seller and Customer
+  support_hours: Monday-Friday, 7:00-19:00 Mountain Time
+  support_24x7_for: [P1, P2]
+  response_targets:
+  - {priority: P1, impact: Service inoperable, response: within 2 hours}
+  - {priority: P2, impact: Significant disruption, response: within 12 hours (support hours)}
+  - {priority: P3, impact: Moderate disruption, response: within 2 business days}
+  - {priority: P4, impact: Minor or no disruption, response: within 2 business days}
+  maintenance: Scheduled maintenance is conducted regularly during non-peak hours; temporary data latency may occur.
+status_page:
+  url: https://status.biointellisense.com/
+  provider: StatusPal
+  public: false
+  note: 'The status page resolves (status.biointellisense.com -> domains.statuspal.io)
+    and returns HTTP 200, but the component/incident detail is behind a sign-in (email/password,
+    Google SSO or GitHub). Presence confirmed; content is customer-gated.'
+regulatory:
+  fda_clearance: 'FDA 510(k) clearance announced 2024-10-02 for the BioButton multi-patient
+    wearable and the BioDashboard system for continuous patient monitoring.'
+  source: https://www.biointellisense.com/biointellisense-announces-fda-clearance-of-the-biobutton-multi-patientwearable-and-biodashboard-system-for-continuous-patient-monitoring/
+deprecated_operations: []
+changelog:
+  url: null
+  note: No dated public changelog or release-notes page was found on biointellisense.com; product announcements are published as news posts at /category/news/.
+x-evidence:
+  fetched: '2026-08-02'
+  sla_url: {url: 'https://www.biointellisense.com/service-level-agreement/', http_status: 200}
+  status_url: {url: 'https://status.biointellisense.com/', http_status: 200}
+  terms_url: {url: 'https://www.biointellisense.com/platform-and-product-user-terms-of-use/', http_status: 200}

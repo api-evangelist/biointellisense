@@ -1,0 +1,66 @@
+generated: '2026-08-02'
+method: searched
+source: 'npm registry search, PyPI, GitHub org lookup, Apple App Store lookup API,
+  Google Play'
+summary:
+  client_libraries: 0
+  mobile_apps: 5
+  note: 'BioIntelliSense publishes NO first-party developer client library on any public
+    registry — npm, PyPI, Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist and
+    crates.io all return zero first-party matches, and there is no public GitHub organization
+    (api.github.com/orgs/biointellisense -> 404). What they do publish are end-user
+    and gateway MOBILE APPS on the Apple App Store and Google Play. These are patient/clinician
+    applications, not SDKs, so no `SDKs` pointer is emitted for them.'
+packages: []
+mobile_apps:
+- platform: ios
+  registry: apple-app-store
+  name: BioMobile
+  bundle_id: com.biointellisense.biomobileplus.ios
+  url: https://apps.apple.com/us/app/biomobile/id1531408588
+  official: true
+  kind: end-user-app
+- platform: ios
+  registry: apple-app-store
+  name: BioHub Connect
+  bundle_id: com.biointellisense.biohub2.companion.ios
+  url: https://apps.apple.com/us/app/biohub-connect/id1560935711
+  official: true
+  kind: gateway-companion-app
+- platform: android
+  registry: google-play
+  name: BioMobile
+  package_id: com.biointellisense.biomobileplus.android
+  url: https://play.google.com/store/apps/details?id=com.biointellisense.biomobileplus.android
+  official: true
+  kind: end-user-app
+- platform: android
+  registry: google-play
+  name: BioSync
+  package_id: com.biointellisense.biomobile.android
+  url: https://play.google.com/store/apps/details?id=com.biointellisense.biomobile.android
+  official: true
+  kind: end-user-app
+- platform: android
+  registry: google-play
+  name: BioHub Connect
+  package_id: com.biointellisense.biohub2.companion.android
+  url: https://play.google.com/store/apps/details?id=com.biointellisense.biohub2.companion.android
+  official: true
+  kind: gateway-companion-app
+registries_checked:
+- {registry: npm, query: biointellisense, first_party_hits: 0}
+- {registry: pypi, query: biointellisense, status: 404}
+- {registry: github-org, query: biointellisense, status: 404}
+- {registry: maven-central, first_party_hits: 0}
+- {registry: nuget, first_party_hits: 0}
+- {registry: rubygems, first_party_hits: 0}
+- {registry: packagist, first_party_hits: 0}
+- {registry: crates.io, first_party_hits: 0}
+- {registry: pkg.go.dev, first_party_hits: 0}
+- {registry: postman-public, query: biointellisense, hits: 0}
+x-evidence:
+  fetched: '2026-08-02'
+  apple_lookup: https://itunes.apple.com/lookup?id=1508207897&entity=software
+  github_org: {url: 'https://api.github.com/orgs/biointellisense', http_status: 404}
+  pypi: {url: 'https://pypi.org/pypi/biointellisense/json', http_status: 404}

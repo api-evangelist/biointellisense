@@ -1,0 +1,44 @@
+generated: '2026-08-02'
+method: probed
+source: live GET of /.well-known/* on every BioIntelliSense host in apis.yml
+summary:
+  documents_found: 0
+  note: 'No /.well-known/ discovery document is served anonymously on any BioIntelliSense
+    host. www.biointellisense.com (WordPress/nginx) 404s every path. biocloud.biointellisense.com
+    answers 401 to every path including /.well-known/*, so the gate fires before any
+    RFC 8615 document could be returned — presence there is unknown, not confirmed
+    absent. status.biointellisense.com (StatusPal) 404s every path.'
+hosts:
+- host: www.biointellisense.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: biocloud.biointellisense.com
+  note: blanket 401 {"code":"authentication_header_missing"} on all paths
+  documents:
+  - {path: /.well-known/security.txt, status: 401}
+  - {path: /.well-known/openid-configuration, status: 401}
+  - {path: /.well-known/oauth-authorization-server, status: 401}
+  - {path: /.well-known/oauth-protected-resource, status: 401}
+  - {path: /.well-known/api-catalog, status: 401}
+  - {path: /.well-known/ai-plugin.json, status: 401}
+  - {path: /.well-known/agent-card.json, status: 401}
+  - {path: /.well-known/agent.json, status: 401}
+- host: status.biointellisense.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+x-evidence:
+  fetched: '2026-08-02'
+  hosts_probed: 3
+  paths_probed: 21
+  two_hundreds: 0

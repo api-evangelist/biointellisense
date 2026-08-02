@@ -1,0 +1,58 @@
+generated: '2026-08-02'
+method: probed
+source: 'live probes of biocloud.biointellisense.com + BioIntelliSense legal/SLA pages;
+  no OpenAPI and no developer documentation exist to derive from'
+authentication:
+  style: Authorization request header, credential type undisclosed
+  detail: authentication/biointellisense-authentication.yml
+  self_service: false
+  note: Access is granted commercially under a Master Services Agreement, not through a developer portal.
+idempotency:
+  supported: unknown
+  header: null
+  note: 'No idempotency contract is documented and none is observable anonymously.
+    NO `Idempotency` pointer is emitted in apis.yml — the provider has not published
+    an idempotency key contract, so claiming one would be fabrication.'
+pagination:
+  style: unknown
+  note: Not observable anonymously; not documented.
+field_expansion:
+  supported: unknown
+metadata:
+  supported: unknown
+request_tracing:
+  request_id_header: unknown
+versioning:
+  scheme: undocumented
+  detail: lifecycle/biointellisense-lifecycle.yml
+error_envelope:
+  media_type: application/json
+  shape: '{"code": "<snake_case_slug>", "description": "<human readable>"}'
+  rfc9457: false
+  detail: errors/biointellisense-problem-types.yml
+rate_limiting:
+  signalled: unknown
+  headers_observed: []
+  note: No RateLimit / X-RateLimit headers were returned on the 401 responses.
+transport:
+  tls_min_observed: TLSv1.2
+  hsts: null
+  detail: security/biointellisense-domain-security.yml
+interoperability:
+  emr_integration: 'BioIntelliSense publicly describes third-party and EMR/EHR integration
+    and data exchange for the BioButton/BioDashboard system. A published Rhapsody (Envoy
+    iPaaS) case study documents BioIntelliSense transforming JSON device data into
+    HL7 for ingestion into Epic at a Colorado health system — i.e. HL7 v2 messaging
+    is used at the integration boundary rather than a public REST contract.'
+  sources:
+  - https://rhapsody.health/resources/biointellisense/
+  - https://www.businesswire.com/news/home/20241002371306/en/BioIntelliSense-Announces-FDA-Clearance-of-the-BioButton-Multi-Patient-Wearable-and-BioDashboard-System-for-Continuous-Patient-Monitoring
+cross_links:
+  authentication: authentication/biointellisense-authentication.yml
+  errors: errors/biointellisense-problem-types.yml
+  lifecycle: lifecycle/biointellisense-lifecycle.yml
+  security: security/biointellisense-domain-security.yml
+  conformance: conformance/biointellisense-conformance.yml
+x-evidence:
+  fetched: '2026-08-02'
+  anonymous_200s_on_api_host: 0
