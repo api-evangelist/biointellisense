@@ -1,4 +1,4 @@
-# BioIntellisense
+# BioIntelliSense
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,5 +64,91 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-BioIntellisense is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/biointellisense_stock/
+BioIntelliSense is a Golden, Colorado continuous health monitoring company whose FDA-cleared BioButton multi-patient wearable, BioSticker, BioHub cellular/Wi-Fi gateways, BioMobile smartphone app and BioDashboard exception-management software stream medical-grade vital signs — heart rate, respiratory rate, skin temperature, body position, activity and sleep — from in-facility acute care through post-acute and at-home remote patient monitoring. Device telemetry flows over Bluetooth to a gateway and into the BioCloud data-as-a-service platform, where analytics and clinician alerting run and where third-party and EMR/EHR integrations (HL7 into Epic and peers) consume the data. The BioCloud API host is live but entirely authentication-gated, with no publicly published developer portal, OpenAPI definition, SDKs or self-service onboarding — integration is arranged commercially under a Master Services Agreement.
+
+**Areas:** Company · Health · Healthcare · Remote Patient Monitoring · Wearables · Medical Devices · Vital Signs · Continuous Monitoring · Digital Health · Data as a Service
+
+## BioIntelliSense on APIs.io
+
+Everything profiled for BioIntelliSense is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/biointellisense/](https://apis.io/providers/biointellisense/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [BioIntelliSense BioCloud API](https://apis.io/apis/biointellisense/biocloud/) — The BioCloud data-as-a-service platform API that ingests continuous vital-signs telemetry from BioButton / BioSticker wearables via BioHub gateways and the…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Biointellisense Authentication](https://apis.io/security/biointellisense/biointellisense-authentication/)
+- [Biointellisense Domain Security](https://apis.io/security/biointellisense/biointellisense-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.biointellisense.com/)
+- [Documentation](https://www.biointellisense.com/resources/)
+- [Support](https://www.biointellisense.com/support)
+- [Blog](https://www.biointellisense.com/category/news/)
+- [Compliance](https://www.biointellisense.com/privacy-policy/)
+- [Terms of service](https://www.biointellisense.com/platform-and-product-user-terms-of-use/)
+- [Privacy policy](https://www.biointellisense.com/privacy-policy/)
+- [Status](https://status.biointellisense.com/)
+
+## API Evangelist rating
+
+**Kin Score 25.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 28.9 |
+
+**Agent readiness 5.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 35.2** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/biointellisense/](https://apis.io/providers/biointellisense/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for BioIntelliSense: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/biointellisense/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
